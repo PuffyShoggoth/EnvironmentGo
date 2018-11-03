@@ -1,12 +1,13 @@
-from django.db import models
 from django.conf import settings
-from django.core.exceptions import ValidationError
 from django.db import models
+
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
+
     def __str__(self):
         return self.user.username
+
 
 class Photo(models.Model):
     location = models.CharField(max_length=255, blank=True)

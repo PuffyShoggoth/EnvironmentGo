@@ -1,5 +1,7 @@
 from EnvironmentGo.forms import ImageForm
 from django.shortcuts import render, redirect
+
+
 def model_form_upload(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
