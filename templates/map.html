@@ -6,7 +6,7 @@
             margin: 0;
         }
 
-        #mapContainer {
+        #map {
             min-height: 100%; 
         }
     </style>
@@ -28,7 +28,8 @@
 <script>
     
     var urls = ['https://i.imgur.com/3gM2WKU.jpg', 'https://i.imgur.com/cEbwTtn.jpg', 'https://i.imgur.com/K47TB3B.jpg'];
-    var longtitudes = []
+    var longtitudes = [-78.2910381, -78.2910381, -78.2910381]
+    var latitudes = [44.3567154, 44.3567034, 44.3567994]
         
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -50,13 +51,13 @@
       innerElement.innerHTML = '<img src='+url +' height="25" width="25">';
         
       function changeOpacity(evt) {
-        evt.target.style.opacity = 0.6;
+        evt.target.style.opacity = 1;
         evt.target.style.width = 100;
         evt.target.style.height = 100;
       };
 
       function changeOpacityToOne(evt) {
-        evt.target.style.opacity = 1;
+        evt.target.style.opacity = 0.7;
         evt.target.style.width = 25;
         evt.target.style.height = 25;
       };
@@ -105,13 +106,22 @@
 
         // Create the default UI components
         var ui = H.ui.UI.createDefault(map, defaultLayers);
-        
         //----------CURRENT LOCATION-----------
         map.setCenter({lat:lat, lng:long});
         map.setZoom(14);
         
         //-----------MARKER LOCATION-----------
-        addDomMarker(map, long, lat);
+        addDomMarker(map, long, lat, 'http://pluspng.com/img-png/you-are-here-png-hd-you-are-here-icon-512.png');
+
+        
+        var i;
+        for (i = 0; i < 3; i++){
+            if (longtitudes[i] == longtitudes[i - 1] || latitudes[i] == latitudes[i - 1]){
+                longtitudes[i] += 0.0005;
+                latitudes[i] += 0.0005;
+            }
+            addDomMarker(map, longtitudes[i], latitudes[i], urls[i]);
+        }
     }
     
 </script>
