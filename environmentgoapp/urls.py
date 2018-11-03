@@ -28,7 +28,10 @@ from django_registration.views import RegistrationView
 from environmentgo import views
 
 register_patterns = [
-    path('register/', RegistrationView.as_view(), name='registration_register'),
+    path('register/', RegistrationView.as_view(
+        template_name='registration/registration_form.html',
+        extra_context={'title': 'Register'},
+    ), name='registration_register'),
     path('login/', LoginView.as_view(
         template_name='registration/login.html',
         extra_context={'title': 'Login'},
