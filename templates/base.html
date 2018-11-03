@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+  {% block stylecontent %}{% endblock %}
+</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}{{ title }}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'environmentgo.css' %}">
+  <script src="{% static 'jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'bootstrap.min.js' %}"></script>
+  <script src="{% static 'environmentgo.js' %}"></script>
+  {% block headcontent %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/"><span class="name-environmentgo">Environment Go!</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'map_page' %}">Map</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add_image' %}">Add Image</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        {% if request.user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="nav-logged-in" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">Hello,
+              <span class="username">{{ request.user.username }}</span>!</a>
+            <div class="dropdown-menu" aria-labelledby="nav-logged-in">
+              <a class="dropdown-item" href="{% url "auth_logout" %}">Logout</a>
+            </div>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'auth_login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'registration_register' %}">Register</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container body-container">
+  {% block content %}{% endblock %}
+</div>
+</body>
+</html>

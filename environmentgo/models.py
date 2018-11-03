@@ -10,8 +10,10 @@ class Profile(models.Model):
 
 
 class Photo(models.Model):
-    location = models.CharField(max_length=255, blank=True)
+    latitude = models.CharField(max_length=255, blank=True)
+    longitude = models.CharField(max_length=255, blank=True)
     image = models.ImageField(upload_to='images/')
     description = models.CharField(max_length=500, blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     uploaded_by = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='photos')
+
