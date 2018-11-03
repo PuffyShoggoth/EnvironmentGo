@@ -39,12 +39,13 @@ input::placeholder {
 .smartGreenForm {
 	margin-left:auto;
 	margin-right:auto;
+  margin-top:150px;
     text-align: center;
     max-width: 500px;
     background: #F8F8F8;
     box-shadow: 20px 20px 10px rgb(0, 0, 0, 0.25);
     padding: 30px 30px 20px 30px;
-    font: 12px Arial, Helvetica, sans-serif;
+    font: 12px Helvetica, Arial, sans-serif;
     color: #666;
     border-radius: 5px;
     -webkit-border-radius: 20px;
@@ -53,10 +54,10 @@ input::placeholder {
 }
 
 .title {
-    font: 48px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font: 56px sans-serif, Arial, Helvetica;
     padding: 20px 0px 20px 40px;
     display: block;
-    margin: 20px -30px 10px -30px;
+    margin: 50px -30px -10px -30px;
     text-align: center;
     color: #FFF;
     background: #9DC45F;

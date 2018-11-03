@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="environmentgo.css">
     </head>
-    
+
 <!--    <style>
     .button {
     background-color: #4CAF50; /* Green */
@@ -25,24 +25,23 @@
 }
     </style>   -->
     <h1 class="title"> Upload Photo</h1>
-<form class="smartGreenForm" enctype="multipart/form-data" method="post">
+<form class="smartGreenForm" enctype="multipart/form-data" method="post" id="myform">
     <input name="img" type="file" accept="image/*" required> <br>
-    <input type="submit" required>
-<!--
-    <input name="lat" type="text" id="latInput" placeholder="Lat" /> <br>
-    <input name="long" type="text" id="lonInput" placeholder="Long" /> <br>
--->
+    <input name="lat" type="text" id="latInput" hidden placeholder="Lat" /> <br>
+    <input name="long" type="text" id="lonInput" hidden placeholder="Long" /> <br>
+    <input type="submit" class="button button1" required>
 </form>
-    
-<button class="button button1" id="myBtn">Get location</button>
+
+<!-- <button class="button button1" id="myBtn">Get location</button> -->
 
 
 <script>
     // Listener
-    document.getElementById("myBtn").addEventListener("click", function(){
+    document.getsElementById("myform").addEventListener("submit", function(e){
         getLocation();
+        // e.preventDefault();
     });
-    
+
     // Get location
     function getLocation() {
         if (navigator.geolocation) {
@@ -51,15 +50,16 @@
             x.innerHTML = "Geolocation is not supported by this browser.";
         }
     }
-    
+
     // Handle location
     function handlePosition(position) {
-                var lat = (position.coords.latitude);
-        var long = (position.coords.longitude);
-    alert(lat);       // This is an alert telling the users current latitude
-        alert(long);   // This is an alert telling the users current longitude
+      var latInput = document.getElementById('latInput');
+      latInput.setAttribute('value', position.coords.latitude);
+
+      var lonInput = document.getElementById('lonInput');
+      lonInput.setAttribute('value', position.coords.longitude);
     }
 </script>
-    
-    
+
+
 </html>
