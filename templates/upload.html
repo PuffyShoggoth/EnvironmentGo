@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="environmentgo.css">
+    </head>
+    
+<!--    <style>
+    .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+    .button1:hover {
+    background-color: #9CAF50;
+    color: white;
+}
+    </style>   -->
+    <h1 class="title"> Upload Photo</h1>
+<form class="smartGreenForm" enctype="multipart/form-data" method="post">
+    <input name="img" type="file" accept="image/*" required> <br>
+    <input type="submit" required>
+<!--
+    <input name="lat" type="text" id="latInput" placeholder="Lat" /> <br>
+    <input name="long" type="text" id="lonInput" placeholder="Long" /> <br>
+-->
+</form>
+    
+<button class="button button1" id="myBtn">Get location</button>
+
+
+<script>
+    // Listener
+    document.getElementById("myBtn").addEventListener("click", function(){
+        getLocation();
+    });
+    
+    // Get location
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(handlePosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    
+    // Handle location
+    function handlePosition(position) {
+                var lat = (position.coords.latitude);
+        var long = (position.coords.longitude);
+    alert(lat);       // This is an alert telling the users current latitude
+        alert(long);   // This is an alert telling the users current longitude
+    }
+</script>
+    
+    
+</html>
