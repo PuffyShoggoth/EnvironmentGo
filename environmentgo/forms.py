@@ -1,6 +1,6 @@
 from django import forms
-from EnvironmentGo.models import Photo
-from EnvironmentGo.identifier import identify_image
+from environmentgo.models import Photo
+from environmentgo.identifier import identify_image
 
 
 class ImageForm(forms.ModelForm):

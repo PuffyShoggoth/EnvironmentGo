@@ -1,4 +1,4 @@
-from EnvironmentGo.forms import ImageForm
+from environmentgo.forms import ImageForm
 from django.shortcuts import render, redirect
 
 
