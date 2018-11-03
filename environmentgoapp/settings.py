@@ -47,7 +47,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'EnvironmentGo.urls'
+ROOT_URLCONF = 'environmentgoapp.urls'
 
 TEMPLATES = [
     {
