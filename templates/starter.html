@@ -8,13 +8,16 @@
     text-align: center;
     max-width: 500px;
     background: #F8F8F8;
+     box-shadow: 20px 20px 10px rgb(0, 0, 0, 0.25); 
     padding: 30px 30px 20px 30px;
     font: 12px Arial, Helvetica, sans-serif;
     color: #666;
     border-radius: 5px;
-    -webkit-border-radius: 10px;
+    -webkit-border-radius: 20px;
     -moz-border-radius: 5px;
+    
 }
+    
 .title {
     font: 48px "Trebuchet MS", Arial, Helvetica, sans-serif;
     padding: 20px 0px 20px 40px;
@@ -87,15 +90,36 @@
 .smart-green .button:hover {
     background-color:#80A24A;
 }
-body {background-color: lightseagreen;}
+
+        
+        body {
+        width: 100%;
+  height: 400px;
+  background-image: 
+      linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0)), url(https://i.imgur.com/LJIEh4v.jpg);
+        }
+          
+.shadow {
+    width: 300px;
+    height: 100px;
+    padding: 15px;
+    background-color: yellow;
+    box-shadow: 10px 10px; 
+        width: 300px;
+    height: 100px;
+    padding: 15px;
+    background-color: yellow;
+    box-shadow: 10px 10px; }
     </style>
 
     <h1 class="title">This is a test form</h1>
     <form class="smartGreenForm">
     <h3>Username: <br></h3>
-    <input type="text" username="username">
+    <input type="text" placeholder="Enter username" name="username" required>
     <h3>Password: <br></h3>
     <input type="text" password="password">
+    <h3>Submit</h3>
+    <input type="submit" value="submit">
     </form>
 </html>
 
