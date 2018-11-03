@@ -27,17 +27,17 @@ from environmentgo import views
 
 
 urlpatterns = [
-    url(r'^accounts/', include('django_registration.backends.one_step.urls')),
-    url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^accounts/register/', RegistrationView.as_view(
+    path('accounts/register/', RegistrationView.as_view(
         template_name='registration/registration_form.html',
         extra_context={'title': 'Register'},
     ), name='registration_register'),
-    url(r'^accounts/login/',LoginView.as_view(
+    path('accounts/login/', LoginView.as_view(
         template_name='registration/login.html',
         extra_context={'title': 'Login'},
     ), name='auth_login'),
-    path('logout/', LogoutView.as_view(template_name='registration/logout.html'), name='auth_logout'),
+    url(r'^accounts/', include('django_registration.backends.one_step.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    path('accouts/logout/', LogoutView.as_view(template_name='registration/logout.html'), name='auth_logout'),
     path('admin/', admin.site.urls),
     path('', views.map_image_data, name='home'),
     path('upload', views.model_form_upload, name='add_image'),
