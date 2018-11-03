@@ -27,8 +27,9 @@
 
 <script>
     
-    var long, lat;
-    
+    var urls = ['https://i.imgur.com/3gM2WKU.jpg', 'https://i.imgur.com/cEbwTtn.jpg', 'https://i.imgur.com/K47TB3B.jpg'];
+    var longtitudes = []
+        
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else { 
@@ -39,6 +40,48 @@
         mapLayer(position.coords.longitude, position.coords.latitude)
     }
 
+    function addDomMarker(map, long, lat, url) {
+      var outerElement = document.createElement('div'),
+          innerElement = document.createElement('div');
+        
+      outerElement.appendChild(innerElement);
+        
+      //-------------IMAGE--------------
+      innerElement.innerHTML = '<img src='+url +' height="25" width="25">';
+        
+      function changeOpacity(evt) {
+        evt.target.style.opacity = 0.6;
+        evt.target.style.width = 100;
+        evt.target.style.height = 100;
+      };
+
+      function changeOpacityToOne(evt) {
+        evt.target.style.opacity = 1;
+        evt.target.style.width = 25;
+        evt.target.style.height = 25;
+      };
+
+      //create dom icon and add/remove opacity listeners
+      var domIcon = new H.map.DomIcon(outerElement, {
+        // the function is called every time marker enters the viewport
+        onAttach: function(clonedElement, domIcon, domMarker) {
+          clonedElement.addEventListener('mouseover', changeOpacity);
+          clonedElement.addEventListener('mouseout', changeOpacityToOne);
+        },
+        // the function is called every time marker leaves the viewport
+        onDetach: function(clonedElement, domIcon, domMarker) {
+          clonedElement.removeEventListener('mouseover', changeOpacity);
+          clonedElement.removeEventListener('mouseout', changeOpacityToOne);
+        }
+      });
+
+      // Marker for Chicago Bears home
+      var bearsMarker = new H.map.DomMarker({lat: lat, lng: long}, {
+        icon: domIcon
+      });
+      map.addObject(bearsMarker);
+    }
+    
     function mapLayer (long, lat) {
         var platform = new H.service.Platform({
           app_id: 'jdVvGc0rG5VYqw5bxs8q',
@@ -62,7 +105,15 @@
 
         // Create the default UI components
         var ui = H.ui.UI.createDefault(map, defaultLayers);
+        
+        //----------CURRENT LOCATION-----------
         map.setCenter({lat:lat, lng:long});
         map.setZoom(14);
+        
+        //-----------MARKER LOCATION-----------
+        addDomMarker(map, long, lat);
     }
+    
 </script>
+
+
