@@ -1,18 +1,23 @@
-from environmentgo.forms import ImageForm
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+
+from environmentgo.forms import ImageForm
 from environmentgo.models import Photo
-from django.http import JsonResponse
+
 
 def home(request):
     return render(request, 'display_map.html', {
-        'title': 'HTTPSAlarm'
+        'title': 'Environment Go!'
     })
 
+@login_required
 def model_form_upload(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            model = form.save(commit=False)
+            model.uploaded_by = request.user
+            model.save()
             return redirect('home')
     else:
         form = ImageForm()

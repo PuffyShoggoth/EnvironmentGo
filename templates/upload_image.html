@@ -1,12 +1,52 @@
 {% extends "base.html" %}
-{% block stylecontent %}
-  body {
-        width: 100%;
-        height: 400px;
-        background-image: linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0)), url(https://i.imgur.com/LJIEh4v.jpg);
-  }
-{% endblock %}
 {% block content %}
+
+  <h1 class="title"> Upload Photo</h1>
+   <form class="smartGreenForm" method="post" enctype="multipart/form-data">
+
+   {% csrf_token %}
+
+   {{ form.as_p }}
+
+   <button type="submit">Upload</button>
+
+ </form>  <p><a href="{% url 'home' %}">Return to home</a></p>
+<!--
+  <form class="smartGreenForm" enctype="multipart/form-data" method="post">
+    <input name="img" type="file" accept="image/*" required> <br>
+    <input type="submit" required>
+
+    <input name="lat" type="text" id="latInput" placeholder="Lat" /> <br>
+    <input name="long" type="text" id="lonInput" placeholder="Long" /> <br>
+</form>
+-->
+<button class="button button1" id="myBtn">Get location</button>
+
+
+<script>
+    // Listener
+    getLocation();
+
+    // Get location
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(handlePosition);
+        } else {
+            setFormValues(0,0);
+        }
+    }
+    function setFormValues(lat, long) {
+            document.getElementById("id_latitude").value=lat;
+            document.getElementById("id_longitude").value=long;
+
+    }
+    // Handle location
+    function handlePosition(position) {
+                var lat = (position.coords.latitude);
+        var long = (position.coords.longitude);
+        setFormValues(lat, long);
+    }
+</script>
 {% endblock %}
 
 

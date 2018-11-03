@@ -1,20 +1,16 @@
 .name-environmentgo {
     color: #008000;
 }
-
 .username {
     font-weight: 600;
 }
-
 html {
     position: relative;
     min-height: 100%;
 }
-
 body {
     margin-bottom: 80px;
 }
-
 .footer {
     position: absolute;
     bottom: 0;
@@ -23,19 +19,15 @@ body {
     line-height: 60px;
     background-color: #f5f5f5;
 }
-
 input::placeholder {
     color: #aaa !important;
 }
-
 .form-non-field-errors ul {
     margin-bottom: 0;
 }
-
 .body-container {
     margin-top: 1rem;
 }
-
 .smartGreenForm {
 	margin-left:auto;
 	margin-right:auto;
@@ -50,9 +42,7 @@ input::placeholder {
     border-radius: 5px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 5px;
-
 }
-
 .title {
     font: 56px sans-serif, Arial, Helvetica;
     padding: 20px 0px 20px 40px;
@@ -66,14 +56,12 @@ input::placeholder {
     -webkit-border-radius: 5px 5px 0px 0px;
     -moz-border-radius: 5px 5px 0px 0px;
     border-bottom:1px solid #89AF4C;
-
 }
 .smart-green h1>span {
     display: block;
     font-size: 11px;
     color: #FFF;
 }
-
 .smart-green label {
     display: block;
     margin: 0px 0px 5px;
@@ -123,7 +111,6 @@ input::placeholder {
 .smart-green .button:hover {
     background-color:#80A24A;
 }
-
 .shadow {
     width: 300px;
     height: 100px;
