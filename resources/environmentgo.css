@@ -1,6 +1,6 @@
 .name-environmentgo {
     color: #008000;
-}
+}  
 .username {
     font-weight: 600;
 }
@@ -67,7 +67,7 @@ input::placeholder {
     margin: 0px 0px 5px;
 }
 .smart-green label>span {
-    float: left;
+    float: left;    
     margin-top: 10px;
     color: #5E5E5E;
 }
@@ -117,8 +117,8 @@ input::placeholder {
     padding: 15px;
     background-color: yellow;
     box-shadow: 10px 10px;
-        width: 300px;
+       	width: 300px;
     height: 100px;
     padding: 15px;
     background-color: yellow;
-    box-shadow: 10px 10px; }
+    box-shadow: 10px 10px; }					
