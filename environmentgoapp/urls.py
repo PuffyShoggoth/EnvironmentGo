@@ -42,4 +42,5 @@ urlpatterns = [
     path('', views.map_image_data, name='home'),
     path('upload', views.model_form_upload, name='add_image'),
     path('create', views.map_image_data, name='map_page'),
+    path('images/<int:id>', views.download, name='image_view')
 ]

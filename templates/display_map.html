@@ -69,10 +69,9 @@
 </html>
 
 <script>
-
-    var urls = ['https://i.imgur.com/3gM2WKU.jpg', 'https://i.imgur.com/cEbwTtn.jpg', 'https://i.imgur.com/K47TB3B.jpg'];
-    var longtitudes = [-78.2910381, -78.2910381, -78.2910381]
-    var latitudes = [44.3567154, 44.3567034, 44.3567994]
+    var urls = {{ image_list | safe }};
+    var longtitudes = {{ longitudes | safe }};
+    var latitudes = {{ latitudes | safe }};
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -91,7 +90,7 @@
       outerElement.appendChild(innerElement);
 
       //-------------IMAGE--------------
-      innerElement.innerHTML = '<img src='+url +' height="25" width="25">';
+      innerElement.innerHTML = '<img src="'+url+'" height="25" width="25">';
 
       function changeOpacity(evt) {
         evt.target.style.opacity = 1;

@@ -1,5 +1,10 @@
+import json
+import mimetypes
+
 from django.contrib.auth.decorators import login_required
+from django.http import FileResponse
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from environmentgo.forms import ImageForm
 from environmentgo.models import Photo
@@ -28,12 +33,11 @@ def model_form_upload(request):
 def map_image_data(request):
     allimages = Photo.objects.all()
     return render(request, 'display_map.html', {
-        'image_list': [{
-            'image': x.image,
-            'latitude' : x.latitude,
-            'longitude' : x.longitude,
-            'description': x.description,
-            'upload_date' : x.uploaded_at,
-            'user' : x.uploaded_by,
-            } for x in allimages]
+        'image_list': json.dumps([reverse('image_view', args=[x.id]) for x in allimages]),
+        'latitudes' : json.dumps([x.latitude for x in allimages]),
+        'longitudes' : json.dumps([x.longitude for x in allimages]),
     })
+
+def download(request, id):
+    image = Photo.objects.get(id=id).image
+    return FileResponse(image, filename=image.name)
