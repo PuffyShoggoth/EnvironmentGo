@@ -31,31 +31,42 @@ input::placeholder {
 .smartGreenForm {
 	margin-left:auto;
 	margin-right:auto;
-  margin-top:150px;
+  margin-top:140px;
     text-align: center;
     max-width: 500px;
-    background: #F8F8F8;
-    box-shadow: 20px 20px 10px rgb(0, 0, 0, 0.25);
+/*    background: rgba(0, 0, 0, 0.25);*/
+/*    box-shadow: 20px 20px 10px rgb(0, 0, 0, 0.25);*/
     padding: 30px 30px 20px 30px;
     font: 12px Helvetica, Arial, sans-serif;
     color: #666;
     border-radius: 5px;
+<<<<<<< HEAD
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 10px;
+
+=======
     -webkit-border-radius: 20px;
     -moz-border-radius: 5px;
+>>>>>>> bcd10b842eab1d8100ca5422d53ef99eabea992a
 }
 .title {
-    font: 56px sans-serif, Arial, Helvetica;
+    font: 50px "Trebuchet MS", Arial, sans-serif;
     padding: 20px 0px 20px 40px;
     display: block;
-    margin: 50px -30px -10px -30px;
+    margin: 50px 0px -50px 0px;
     text-align: center;
     color: #FFF;
-    background: #9DC45F;
-    text-shadow: 1px 1px 1px #949494;
+    background: #2eb82e;
+    text-shadow: 2px 2px 2px #949494;
     border-radius: 5px 5px 0px 0px;
     -webkit-border-radius: 5px 5px 0px 0px;
     -moz-border-radius: 5px 5px 0px 0px;
+<<<<<<< HEAD
+    border-bottom:1px solid #248f24;
+
+=======
     border-bottom:1px solid #89AF4C;
+>>>>>>> bcd10b842eab1d8100ca5422d53ef99eabea992a
 }
 .smart-green h1>span {
     display: block;
@@ -85,6 +96,12 @@ input::placeholder {
     box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
     font: normal 14px/14px Arial, Helvetica, sans-serif;
 }
+
+.textfield {
+    width: 75%;
+    padding: 8px;
+    border-radius: 10px;
+}
 .smart-green textarea{
     height:100px;
     padding-top: 10px;
@@ -98,9 +115,10 @@ input::placeholder {
     width:100%;
     height:30px;
 }
-.smart-green .button {
+.button {
     background-color: #9DC45F;
     border-radius: 5px;
+    width: 77%;
     -webkit-border-radius: 5px;
     -moz-border-border-radius: 5px;
     border: none;
@@ -108,7 +126,7 @@ input::placeholder {
     color: #FFF;
     text-shadow: 1px 1px 1px #949494;
 }
-.smart-green .button:hover {
+.button:hover {
     background-color:#80A24A;
 }
 .shadow {
