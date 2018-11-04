@@ -9,6 +9,10 @@
         #map {
             min-height: 100%; 
         }
+        
+        img {
+            border-radius: 50%;
+        }       
     </style>
     
     <head>
@@ -45,10 +49,29 @@
       var outerElement = document.createElement('div'),
           innerElement = document.createElement('div');
         
+          outerElement.style.userSelect = 'none';
+          outerElement.style.webkitUserSelect = 'none';
+          outerElement.style.msUserSelect = 'none';
+          outerElement.style.mozUserSelect = 'none';
+          outerElement.style.cursor = 'default';
+
+          innerElement.style.color = '2EBA2E';
+          innerElement.style.font = 'normal 12px arial';
+          innerElement.style.lineHeight = '12px'
+
+        
       outerElement.appendChild(innerElement);
         
       //-------------IMAGE--------------
-      innerElement.innerHTML = '<img src='+url +' height="25" width="25">';
+        
+      var invasive = true;
+      if(!invasive){
+        innerElement.innerHTML = '<img src="'+url+'" height="25" width="25" border = "3"> <div class="innerdiv" style="visibility:visible;"><font color="black">Pink</font></div>';
+      } else {
+           innerElement.style.color = 'red';
+          innerElement.innerHTML = '<img src="'+url+'" height="25" width="25" border = "3"> <div class="innerdiv" style="visibility:visible;"><font color="red">Pink</font></div>';
+      }
+        
         
       function changeOpacity(evt) {
         evt.target.style.opacity = 1;
