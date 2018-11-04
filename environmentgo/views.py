@@ -36,6 +36,7 @@ def map_image_data(request):
         'image_list': json.dumps([reverse('image_view', args=[x.id]) for x in allimages]),
         'latitudes' : json.dumps([x.latitude for x in allimages]),
         'longitudes' : json.dumps([x.longitude for x in allimages]),
+        'descriptions' : json.dumps([x.description for x in allimages]),
     })
 
 def download(request, id):

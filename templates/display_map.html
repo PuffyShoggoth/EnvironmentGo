@@ -72,7 +72,7 @@
     var urls = {{ image_list | safe }};
     var longtitudes = {{ longitudes | safe }};
     var latitudes = {{ latitudes | safe }};
-
+    var descriptions = {{ descriptions | safe }};
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
@@ -83,14 +83,14 @@
         mapLayer(position.coords.longitude, position.coords.latitude)
     }
 
-    function addDomMarker(map, long, lat, url) {
+    function addDomMarker(map, long, lat, url, description) {
       var outerElement = document.createElement('div'),
           innerElement = document.createElement('div');
 
       outerElement.appendChild(innerElement);
 
       //-------------IMAGE--------------
-      innerElement.innerHTML = '<img src="'+url+'" height="25" width="25">';
+      innerElement.innerHTML = '<img src="'+url+'" height="25" width="25"><div class="innerdiv" style="visibility:visible;"><p>'+description+'</p></div>';
 
       function changeOpacity(evt) {
         evt.target.style.opacity = 1;
@@ -157,12 +157,12 @@
 
 
         var i;
-        for (i = 0; i < 3; i++){
+        for (i = 0; i < longtitudes.length; i++){
             if (longtitudes[i] == longtitudes[i - 1] || latitudes[i] == latitudes[i - 1]){
                 longtitudes[i] += 0.0005;
                 latitudes[i] += 0.0005;
             }
-            addDomMarker(map, longtitudes[i], latitudes[i], urls[i]);
+            addDomMarker(map, longtitudes[i], latitudes[i], urls[i], descriptions[i]);
         }
     }
 
