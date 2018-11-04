@@ -10,6 +10,9 @@
         #map {
             min-height: 100%;
         }
+        img {
+              border-radius: 50%;
+          }
     </style>
 
     <head>
@@ -73,6 +76,7 @@
     var longtitudes = {{ longitudes | safe }};
     var latitudes = {{ latitudes | safe }};
     var descriptions = {{ descriptions | safe }};
+    var invasives = {{ invasives | safe }};
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else {
@@ -167,7 +171,7 @@
                 longtitudes[i] += 0.0005;
                 latitudes[i] += 0.0005;
             }
-            addDomMarker(map, longtitudes[i], latitudes[i], urls[i], descriptions[i]);
+            addDomMarker(map, longtitudes[i], latitudes[i], urls[i], descriptions[i], invasives[i]);
         }
     }
 
