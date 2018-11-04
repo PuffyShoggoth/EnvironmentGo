@@ -68,6 +68,12 @@ input::placeholder {
     border-bottom:1px solid #89AF4C;
 >>>>>>> bcd10b842eab1d8100ca5422d53ef99eabea992a
 }
+.logo {
+    position:absolute;
+    opacity:0.75;
+    left:30px;
+    top:500px;
+}
 .smart-green h1>span {
     display: block;
     font-size: 11px;
