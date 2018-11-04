@@ -65,8 +65,6 @@
     padding-top: 10px;
 }
 .smart-green select {
-    background: url('down-arrow.png') no-repeat right, -moz-linear-gradient(top, #FBFBFB 0%, #E9E9E9 100%);
-    background: url('down-arrow.png') no-repeat right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FBFBFB), color-stop(100%,#E9E9E9));
    appearance:none;
     -webkit-appearance:none; 
    -moz-appearance: none;
