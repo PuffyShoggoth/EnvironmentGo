@@ -15,7 +15,9 @@ class ImageForm(forms.ModelForm):
 
     def save(self, commit=True):
         instance = super(ImageForm, self).save(commit=False)
-        instance.description = identify_image(instance.image.open(mode='r').read())
+        identify_res = identify_image(instance.image.open(mode='r').read())
+        instance.description = identify_res[0]
+        instance.invasive = identify_res[1]
         if commit:
             instance.save()
         return instance

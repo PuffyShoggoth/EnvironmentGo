@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y!^lr&h+puy!tfsrbdws1cnvgzmfg#c^@kxsik2few)8fw9n_h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["environmentgo.net", "127.0.0.1"]
 
 # Application definition
 

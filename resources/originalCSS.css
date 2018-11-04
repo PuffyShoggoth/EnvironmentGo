@@ -1,4 +1,3 @@
-    <style>
         /*######## Smart Green ########*/
 .smartGreenForm {
 	margin-left:auto;
@@ -6,7 +5,7 @@
     text-align: center;
     max-width: 500px;
     background: #F8F8F8;
-     box-shadow: 20px 20px 10px rgb(0, 0, 0, 0.25); 
+     box-shadow: 20px 20px 10px rgb(0, 0, 0);
     padding: 30px 30px 20px 30px;
     font: 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
     color: #666;
@@ -106,4 +105,3 @@
     padding: 15px;
     background-color: yellow;
     box-shadow: 10px 10px; }
-    </style>
